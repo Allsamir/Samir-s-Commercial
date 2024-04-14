@@ -6,6 +6,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Roboto", "sans-serif"],
+      popins: ["Poppins", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [daisyUi],
