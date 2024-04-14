@@ -1,14 +1,17 @@
 import { useContext, useState} from "react";
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../config/firebase.config";
 
 const Register = () => {
   const {register, handleSubmit} = useForm();
   const [isPasswordVisiable, setPasswordVisiable] = useState(false);
   const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data, event) => {
     const {name, email, photoURL, password} = data;
@@ -17,8 +20,19 @@ const Register = () => {
       createUser(email, password)
       .then(result => {
         console.log(result.user)
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoURL
+        })
+        .then(() => {
         showToastMessage();
         event.target.reset()
+        navigate("/")
+        })
+        .catch(err => {
+          console.error(err);
+          showToastMessage2();
+        })
       })
       .catch(error => {
         console.error(error);
