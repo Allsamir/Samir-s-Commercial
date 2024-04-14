@@ -1,10 +1,10 @@
 import { useContext } from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { AuthContext } from "../provider/AuthProvider"
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
-  
+  const navigate = useNavigate();
   return (
   <div className="navbar text-black">
   <div className="navbar-start">
@@ -29,13 +29,16 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
    {user && (<div className="w-12 rounded-full mr-2">
-          <img alt={user?.name || ""} src={user?.photoURL || ""} className="rounded-full"/>
+          <img alt={user?.displayName || ""} src={user?.photoURL || ""} className="rounded-full cursor-pointer" title={user?.displayName || ""}/>
         </div>)
-        }
+   }
    {user ? <Link to={"/"} onClick={() => {
-    logOut().then(() => {
-      console.log("Sucessfully Logout")
-   }).catch((error) => {
+    logOut()
+    .then(() => {
+      console.log("Sucessfully Logout");
+      navigate("/login")
+    })
+   .catch((error) => {
      console.error(error)
    });
    }} className="btn btn-outline text-black text-base">Logout</Link> : <Link to={"/login"} className="btn btn-outline text-black text-base">Login</Link>}

@@ -18,8 +18,7 @@ const Register = () => {
     const isValidPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password);
     if (isValidPassword) {
       createUser(email, password)
-      .then(result => {
-        console.log(result.user)
+      .then(() => {
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photoURL
@@ -36,7 +35,7 @@ const Register = () => {
       })
       .catch(error => {
         console.error(error);
-        showToastMessage2();
+        showToastMessage2(error.message);
         event.target.reset()
       });
       console.log(name, photoURL) 
@@ -54,8 +53,8 @@ const Register = () => {
       position: "top-right",
     });
   };
-  const showToastMessage2 = () => {
-    toast.error("Registation failed!", {
+  const showToastMessage2 = (errorMessage) => {
+    toast.error(errorMessage || "Registation failed!", {
       position: "top-right",
     });
   };
@@ -79,20 +78,20 @@ const Register = () => {
           <label className="label">
             <span className="label-text text-black">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered bg-white" required {...register("email")}/>
+          <input type="email" placeholder="Email" className="input input-bordered bg-white" required {...register("email")}/>
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text text-black">Photo URL</span>
           </label>
-          <input type="text" placeholder="Photo URL" className="input input-bordered bg-white" required {...register("photoURL")}/>
+          <input type="text" placeholder="Your Live Photo URL" className="input input-bordered bg-white" required {...register("photoURL")}/>
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text text-black">Password</span>
           </label>
           <div className="relative">
-          <input type={isPasswordVisiable ? "text" : "password"} placeholder="password" className="input input-bordered bg-white w-full" required {...register("password")}/>
+          <input type={isPasswordVisiable ? "text" : "password"} placeholder="Password" className="input input-bordered bg-white w-full" required {...register("password")}/>
            <button
                     type="button"
                     className="absolute inset-y-0 right-0 px-3 py-1 bg-transparent"

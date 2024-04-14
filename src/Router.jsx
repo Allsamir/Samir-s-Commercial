@@ -7,6 +7,7 @@ import Register from "./Pages/Register"
 import Profile from "./Pages/Profile"
 import UpdateProfile from "./Pages/UpdateProfile"
 import CommercialSpaces from "./Pages/CommercialSpaces"
+import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute"
 
 
 const router = createBrowserRouter([{
@@ -26,7 +27,7 @@ const router = createBrowserRouter([{
          },
          {
           path: "/profile",
-          element: <Profile />
+          element: <ProtectedRoute><Profile /></ProtectedRoute>
          },
          {
           path: "/update-profile",
