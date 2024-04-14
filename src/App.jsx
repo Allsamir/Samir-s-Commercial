@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 
 function App() {
   const location = useLocation();
-
   useEffect(() => {
     let currentRoute = location.pathname;
     if(currentRoute == '/') {
