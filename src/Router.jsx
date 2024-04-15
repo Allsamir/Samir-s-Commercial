@@ -15,7 +15,16 @@ const router = createBrowserRouter([{
           element: <App />,
           children: [{
                     path: "/",
-                    element: <Home />
+                    element: <Home />,
+                    loader: async () => {
+                              try {
+                                        const res = await fetch("https://allsamir.github.io/real-state.json.host/real-state.json");
+                                        const data = await res.json();
+                                        return data;
+                              } catch(error) {
+                                        console.error(error)
+                              }
+                    }
           },
          {
           path: "/login",

@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto'>
         <Outlet />
       </div>
       <Footer />
