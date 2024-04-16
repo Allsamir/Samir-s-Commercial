@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 import PropTypes from "prop-types";
 
@@ -16,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loadingState, setLoadingState] = useState(true);
   const provider = new GoogleAuthProvider();
+  const fProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
     setLoadingState(true);
@@ -24,6 +26,10 @@ const AuthProvider = ({ children }) => {
 
   const signInWithGoogle = () => {
     return signInWithPopup(auth, provider);
+  };
+
+  const signInWithGithub = () => {
+    return signInWithPopup(auth, fProvider);
   };
 
   const logIn = (email, password) => {
@@ -43,6 +49,7 @@ const AuthProvider = ({ children }) => {
     logIn,
     loadingState,
     signInWithGoogle,
+    signInWithGithub,
   };
 
   useEffect(() => {

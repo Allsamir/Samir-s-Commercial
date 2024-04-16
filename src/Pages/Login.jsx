@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
+import { FiGithub } from "react-icons/fi";
+
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
-  const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const { logIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
   const [isPasswordVisiable, setPasswordVisiable] = useState(false);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -39,6 +41,18 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        showToastMessage2(errorMessage);
+      });
+  };
+
+  const handleFacebookLogin = () => {
+    signInWithGithub()
+      .then(() => {
+        showToastMessage();
+        navigate("/");
+      })
+      .catch((err) => {
+        const errorMessage = err.message;
         showToastMessage2(errorMessage);
       });
   };
@@ -117,12 +131,20 @@ const Login = () => {
               </Link>{" "}
               here
             </p>
-            <button
-              className="btn btn-outline text-sky-500 mt-3"
-              onClick={handleGoogleLogin}
-            >
-              <FcGoogle />
-            </button>
+            <div className="flex justify-center items-center gap-4 mt-3">
+              <button
+                className="btn btn-outline text-sky-500"
+                onClick={handleGoogleLogin}
+              >
+                <FcGoogle />
+              </button>
+              <button
+                className="btn btn-outline text-black"
+                onClick={handleFacebookLogin}
+              >
+                <FiGithub />
+              </button>
+            </div>
           </form>
         </div>
         <ToastContainer />
