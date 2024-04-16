@@ -11,10 +11,10 @@ Samir's Commercial is a website dedicated to commercial real estate properties. 
 ## Features and Characteristics
 
 - **Property Listings**: Browse through a curated collection of commercial real estate properties, including office buildings, retail spaces, warehouses, and more.
-- **Search and Filter**: Use advanced search and filtering options to find properties based on location, price, size, and amenities.
+- **Customizable Profile**: Use advanced Profile Mangement System.
 - **Detailed Property Information**: Access detailed information for each property, including descriptions, photos, floor plans, and facilities.
-- **Interactive Maps**: View properties on interactive maps to visualize their locations and nearby amenities.
-- **Contact and Inquiry**: Easily get in touch with property agents or owners to inquire about properties or schedule viewings.
+- **Interactive Slider**: View properties on interactive Slider to visualize their locations and nearby amenities.
+- **Login and Registation**: Easily you can Login and Register.
 
 ## NPM Packages
 
