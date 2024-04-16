@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import "animate.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
-    <div className="navbar text-black">
+    <div className="navbar text-black mt-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -27,7 +28,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm z-10 dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-black text-white"
+            className="menu text-base menu-sm z-10 dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-black text-white"
           >
             <li>
               <NavLink to={"/"}>Home</NavLink>
@@ -45,7 +46,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-base">
           <li>
             <NavLink to={"/"}>Home</NavLink>
           </li>
@@ -86,7 +87,10 @@ const Navbar = () => {
             Logout
           </Link>
         ) : (
-          <Link to={"/login"} className="btn btn-outline text-black text-base">
+          <Link
+            to={"/login"}
+            className="btn btn-outline text-black text-base animate-bounce"
+          >
             Login
           </Link>
         )}

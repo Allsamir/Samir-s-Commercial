@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Slider from "../components/Slider";
 import EstateCard from "../components/EstateCard";
 import "../App.css";
+import "animate.css";
 
 const Home = () => {
   const estateData = useLoaderData();
@@ -11,7 +12,7 @@ const Home = () => {
         <Slider estates={estateData} />
       </div>
       <div className="my-24 estate">
-        <h1 className="text-black font-popins font-semibold text-4xl text-center">
+        <h1 className="text-black font-popins font-semibold text-4xl text-center animate-bounce">
           Estates
         </h1>
         <div className="my-8 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 px-4 place-items-center">

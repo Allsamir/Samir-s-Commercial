@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "animate.css";
 
 const EstateCard = ({ estate }) => {
   return (
@@ -21,7 +22,7 @@ const EstateCard = ({ estate }) => {
         </div>
         <div className="card-actions mt-2">
           <Link to={`/estate/${estate.id}`}>
-            <button className="btn btn-outline text-black">
+            <button className="btn btn-outline text-black animate-pulse">
               View Property
             </button>
           </Link>
