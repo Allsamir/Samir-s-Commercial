@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
@@ -13,6 +13,7 @@ const Login = () => {
   const [isPasswordVisiable, setPasswordVisiable] = useState(false);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = (data, event) => {
     const { email, password } = data;
@@ -22,7 +23,7 @@ const Login = () => {
         .then(() => {
           event.target.reset();
           showToastMessage();
-          navigate("/");
+          navigate(location?.state || "/");
         })
         .catch((err) => {
           console.error(err);
@@ -37,7 +38,7 @@ const Login = () => {
     signInWithGoogle()
       .then(() => {
         showToastMessage();
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -49,7 +50,7 @@ const Login = () => {
     signInWithGithub()
       .then(() => {
         showToastMessage();
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         const errorMessage = err.message;
