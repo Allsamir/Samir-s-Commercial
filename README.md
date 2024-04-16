@@ -16,7 +16,7 @@ Samir's Commercial is a website dedicated to commercial real estate properties. 
 - **Interactive Slider**: View properties on interactive Slider to visualize their locations and nearby amenities.
 - **Login and Registation**: Easily you can Login and Register.
 
-## NPM Packages
+## NPM Packages for Challenge Tasks
 
 - [Animate.css](https://www.npmjs.com/package/animate.css): Used for adding animations to enhance user experience.
 - [React-hook-form](https://www.npmjs.com/package/react-hook-form): Utilized for handling forms and form validations efficiently.
