@@ -1,15 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from 'swiper/modules';
-import PropTypes from "prop-types"
-import 'swiper/css';
-import 'swiper/css/pagination';
+import { Pagination, Autoplay } from "swiper/modules";
+import PropTypes from "prop-types";
+import "swiper/css";
+import "swiper/css/pagination";
 import SingleSlider from "./SingleSlider";
-import "../App.css";
+import "../Slider.css";
 
-const Slider = ({estates}) => {
+const Slider = ({ estates }) => {
   return (
     <>
-          <Swiper
+      <Swiper
         pagination={{
           dynamicBullets: true,
         }}
@@ -24,14 +24,18 @@ const Slider = ({estates}) => {
         modules={[Pagination, Autoplay]}
         className="mySwiper"
       >
-       {estates.map((estate, index) => <SwiperSlide key={index}><SingleSlider key={index} estate={estate}/></SwiperSlide>)}           
+        {estates.map((estate, index) => (
+          <SwiperSlide key={index}>
+            <SingleSlider key={index} estate={estate} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
-  )
-}
+  );
+};
 
 Slider.propTypes = {
-          estates: PropTypes.array.isRequired
-}
+  estates: PropTypes.array.isRequired,
+};
 
-export default Slider
+export default Slider;

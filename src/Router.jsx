@@ -76,6 +76,17 @@ const router = createBrowserRouter([
             <CommercialSpaces />
           </ProtectedRoute>
         ),
+        loader: async () => {
+          try {
+            const res = await fetch(
+              "https://allsamir.github.io/real-state.json.host/real-state.json",
+            );
+            const data = await res.json();
+            return data;
+          } catch (error) {
+            console.error(error);
+          }
+        },
       },
     ],
     errorElement: <ErrorPage />,
