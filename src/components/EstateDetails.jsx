@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams, useNavigate } from "react-router-dom";
 
 const EstateDetails = () => {
   const estateDetails = useLoaderData();
   let { estateId } = useParams();
+  const navigate = useNavigate();
+
   const singleEstateDetails = estateDetails.find(
     (estateDetail) => estateDetail.id == estateId,
   );
-  console.log(singleEstateDetails);
 
   useEffect(() => {
     document.title = `Samir's Commercial | ${singleEstateDetails.estate_title}`;
@@ -57,7 +58,12 @@ const EstateDetails = () => {
           </ul>
         </div>
         <Link to={"/"}>
-          <button className="btn btn-outline text-black">Back</button>
+          <button
+            className="btn btn-outline text-black"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
         </Link>
       </div>
     </div>

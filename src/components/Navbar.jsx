@@ -41,7 +41,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="md:text-2xl text-xl font-bold font-popins">
+        <a className="md:text-2xl sm:text-xl text-base font-bold font-popins">
           Samir&apos;s Commercial
         </a>
       </div>
