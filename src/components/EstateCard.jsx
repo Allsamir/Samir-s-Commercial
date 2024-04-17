@@ -1,10 +1,20 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "animate.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const EstateCard = ({ estate }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="card bg-white text-black shadow-xl">
+    <div
+      className="card bg-white text-black shadow-xl"
+      data-aos="flip-left"
+      data-aos-delay="100"
+    >
       <figure className="">
         <img src={estate.image} alt="Shoes" className="rounded-xl" />
       </figure>

@@ -21,3 +21,4 @@ Samir's Commercial is a website dedicated to commercial real estate properties. 
 - [Animate.css](https://www.npmjs.com/package/animate.css): Used for adding animations to enhance user experience.
 - [React-hook-form](https://www.npmjs.com/package/react-hook-form): Utilized for handling forms and form validations efficiently.
 - [Swiper Slider](https://www.npmjs.com/package/swiper): Implemented for creating responsive and interactive image sliders for property listings.
+- [AOS](https://www.npmjs.com/package/aos): Used to give scroll animation in the App
